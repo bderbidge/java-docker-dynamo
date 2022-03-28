@@ -1,0 +1,10 @@
+server:
+  port: 8780
+
+amazon:
+  access:
+    key: default_access_key
+    secret-key: default_secret_key
+  region: sa-east-1
+  end-point:
+    url: http://localhost:8000/

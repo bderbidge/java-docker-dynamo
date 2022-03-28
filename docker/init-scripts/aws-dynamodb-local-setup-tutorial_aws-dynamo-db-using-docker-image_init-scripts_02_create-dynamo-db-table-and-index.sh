@@ -3,7 +3,7 @@
 echo "########### Creating table with global secondary index ###########"
 aws   $AWS_ENDPOINT \
       dynamodb create-table \
-         --table-name customer-loc \
+         --table-name student \
          --attribute-definitions \
            AttributeName=id,AttributeType=S \
            AttributeName=phone_number,AttributeType=S \
@@ -26,13 +26,13 @@ aws   $AWS_ENDPOINT \
 
 echo "########### Describing a table ###########"
 aws   $AWS_ENDPOINT \
-      dynamodb describe-table --table-name customer-loc --output table
+      dynamodb describe-table --table-name student --output table
 
 echo "########### Inserting test data into a table ###########"
 aws   $AWS_ENDPOINT \
-      dynamodb put-item --table-name customer-loc --item "{\"id\":{\"S\":\"29ae2e26-76df-4211-a8e8-f26f11b11588\"},
+      dynamodb put-item --table-name student --item "{\"id\":{\"S\":\"29ae2e26-76df-4211-a8e8-f26f11b11588\"},
                                                      \"phone_number\":{\"S\":\"1-962-894-4629\"},
-                                                     \"fullName\":{\"S\":\"Jarrod Kub V\"},
+                                                     \"fullName\":{\"S\":\"Brandon John V\"},
                                                      \"address\":{\"S\":\"94912 Kihn Club, Lake Twana, AR 58508\"},
                                                      \"createdAt\":{\"S\":\"2021-09-26\"},
                                                      \"purchaseTransactions\":{\"L\":[{
@@ -49,4 +49,4 @@ aws   $AWS_ENDPOINT \
 
 echo "########### Selecting all data from a table ###########"
 aws   $AWS_ENDPOINT \
-      dynamodb scan --table-name customer-loc
+      dynamodb scan --table-name student
