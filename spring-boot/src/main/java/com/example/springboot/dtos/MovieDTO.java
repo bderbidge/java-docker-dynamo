@@ -1,23 +1,20 @@
 package com.example.springboot.dtos;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.*;
+public class MovieDTO {
 
-@DynamoDBTable(tableName = "student")
-public class Student {
     private String id;
     private String fullName;
     private String phoneNumber;
 
-    public Student() {
+    public MovieDTO() {
     }
 
-    public Student(String id, String fullName, String phoneNumber) {
+    public MovieDTO(String id, String fullName, String phoneNumber) {
         this.id = id;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
     }
 
-    @DynamoDBHashKey(attributeName = "id")
     public String getid() {
         return id;
     }
@@ -26,7 +23,6 @@ public class Student {
         this.id = id;
     }
 
-    @DynamoDBAttribute
     public String getfullName() {
         return fullName;
     }
@@ -35,12 +31,20 @@ public class Student {
         this.fullName = fullName;
     }
 
-    @DynamoDBHashKey(attributeName = "phone_number")
     public String getphoneNumber() {
         return phoneNumber;
     }
 
     public void setphoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentDTO{" +
+                "id='" + id + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }
